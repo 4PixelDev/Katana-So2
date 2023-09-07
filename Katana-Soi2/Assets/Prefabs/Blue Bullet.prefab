@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3095056853396272531}
   - component: {fileID: -6997114457393665035}
   m_Layer: 3
-  m_Name: Red Bullet
+  m_Name: Blue Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 983543efbeb8bf8459834f3dc0f8a56c, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.7766566, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
