@@ -5,27 +5,34 @@ using TMPro;
 public class Score : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI HighScore;
     [SerializeField] private int currentScore;
+
     // Start is called before the first frame update
     void Start()
     {
-        currentScore = 0;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        HighScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        //currentScore = 0;
     }
 
     public void AddScore(int scoreAmount)
     {
         currentScore++;
         scoreText.text = currentScore.ToString();
+
+        if (currentScore > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            // we'v beatn the highest score, congrats
+            PlayerPrefs.SetInt("HighScore", currentScore);
+            HighScore.text = currentScore.ToString();
+        }
+
+
     }
 
-    public void ResetGame()
+    public void ResetScore()
     {
-        currentScore = 0;
+        PlayerPrefs.DeleteAll();
+        HighScore.text = "0";
     }
 }

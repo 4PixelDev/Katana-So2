@@ -5,16 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class ObjectDestroyer : MonoBehaviour
 {
+    [SerializeField] private GameObject loseImage;
+    [SerializeField] private GameObject gameElements;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(collision.gameObject);
         Debug.Log(collision.gameObject.name + " Die ");
-        Invoke("RestartScene", 2f);
+        Invoke("GameOver", 2f);
     }
 
-    public void RestartScene()
+    public void GameOver()
     {
+        Time.timeScale = 0f;
+        loseImage.SetActive(true);
+        gameElements.SetActive(false);
         // Scene will restart after two Seconds .
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
