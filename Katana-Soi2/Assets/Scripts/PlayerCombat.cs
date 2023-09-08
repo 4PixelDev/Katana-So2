@@ -16,6 +16,13 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float attackRate = 2f;
     private float nextAttackTime = 0f;
 
+
+    Score score;
+    public int scoreAmount = 1;
+    private void Start()
+    {
+        score = GetComponent<Score>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -45,6 +52,7 @@ public class PlayerCombat : MonoBehaviour
             // BulletFlyAway();
             Debug.Log("We hit " + enemy.name);
             enemy.GetComponent<Health>().Damage(damageAmount);
+            score.AddScore(scoreAmount);
         }
     }
 

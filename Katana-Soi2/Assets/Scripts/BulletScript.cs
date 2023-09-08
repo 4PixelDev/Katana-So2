@@ -24,22 +24,6 @@ public class BulletScript : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        // Check for collisions with AttackRange
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(ballCenter.position, ballRadius);
-
-        foreach (Collider2D collider in colliders)
-        {
-            if (collider.CompareTag("Player"))
-            {
-                // Do something when the ballRadius collides with AttackRange
-                // For example, you can call a method or execute custom logic
-                collider.GetComponent<PlayerCombat>();
-            }
-        }
-    }
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;

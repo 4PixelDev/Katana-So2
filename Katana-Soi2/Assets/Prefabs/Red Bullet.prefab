@@ -162,9 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07536880c1e5034795ab8963411439c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 4
+  bulletSpeed: 8
   ballCenter: {fileID: 6375808482759927309}
-  ballRadiues: 0.255
+  ballRadius: 0.255
 --- !u!114 &-6997114457393665035
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -164,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 4
   ballCenter: {fileID: 6375808482759927309}
-  ballRadiues: 0.255
+  ballRadius: 0.255
 --- !u!114 &-6997114457393665035
 MonoBehaviour:
   m_ObjectHideFlags: 0
