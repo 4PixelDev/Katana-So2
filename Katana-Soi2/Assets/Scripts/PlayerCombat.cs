@@ -16,11 +16,14 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float attackRate = 2f;
     private float nextAttackTime = 0f;
 
-
-    Score score;
     public int scoreAmount = 1;
+    Score score;
+
+    private Shake camShake;
+
     private void Start()
     {
+        camShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
         score = GetComponent<Score>();
     }
     // Update is called once per frame
@@ -50,9 +53,11 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             // BulletFlyAway();
+            camShake.ShakeCamera();
             Debug.Log("We hit " + enemy.name);
             enemy.GetComponent<Health>().Damage(damageAmount);
             score.AddScore(scoreAmount);
+
         }
     }
 
