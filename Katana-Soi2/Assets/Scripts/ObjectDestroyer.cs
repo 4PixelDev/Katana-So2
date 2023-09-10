@@ -10,9 +10,17 @@ public class ObjectDestroyer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.tag == "Player")
+        {
+            Destroy(collision.gameObject);
+            Debug.Log(collision.gameObject.name + " Die ");
+            Invoke("GameOver", 2f);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         Destroy(collision.gameObject);
-        Debug.Log(collision.gameObject.name + " Die ");
-        Invoke("GameOver", 2f);
     }
 
     public void GameOver()

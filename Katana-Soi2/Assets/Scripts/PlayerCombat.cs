@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class PlayerCombat : MonoBehaviour
     Score score;
 
     private Shake camShake;
+
+    [SerializeField] private float splitBulletSpeed = 5f;
+
+    [SerializeField] private GameObject firstSplitSprite;
+    [SerializeField] private GameObject secondSplitSprite;
 
     private void Start()
     {
@@ -58,6 +64,19 @@ public class PlayerCombat : MonoBehaviour
             enemy.GetComponent<Health>().Damage(damageAmount);
             score.AddScore(scoreAmount);
 
+            // Instantiate Two half bullets 
+            GameObject firsthalf = Instantiate(firstSplitSprite, enemy.transform.position, transform.rotation);
+            GameObject secondHalf = Instantiate(secondSplitSprite, enemy.transform.position, transform.rotation);
+
+            float randX = Random.Range(-0.9f, -1.2f);
+            float randX1 = Random.Range(-1f, -1.4f);
+
+            float randY = Random.Range(0.95f, 1f);
+            float randY1 = Random.Range(-0.99f, -1.5f);
+
+            firsthalf.GetComponent<Rigidbody2D>().velocity = new Vector2(randX, randY) * splitBulletSpeed;
+            secondHalf.GetComponent<Rigidbody2D>().velocity = new Vector2(randX1, randY1) * splitBulletSpeed;
+            // it will be destroyed by a box collider field that destroy every thing
         }
     }
 
